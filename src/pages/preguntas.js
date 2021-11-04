@@ -45,7 +45,46 @@ const catalogoPreguntas =
         },
     },
     "medio":{
-
+        1: {
+            categoria: "Entretenimiento",
+            pregunta: "¿Cuál era la dirección que Dori estaba buscando a Nemo?",
+            opciones: ["P Sherman 42 Wallaby Way Sidney", "P Sherman 42 Wallaby Way Seatle", "P Sherman 46 Wallaby Way Sidney", " Sherman 42 Wallaby Way Disney"],
+            correcta: "P Sherman 42 Wallaby Way Sidney",
+            imagen: "./styles/assets/img/preguntas/facil/preguntaMedio1.jpg",
+            descripcionImagen:"Imagen de la pelicula Nemo"
+        },
+        2: {
+            categoria: "Historia",
+            pregunta: "¿Quién inventó la caja de tortura china?",
+            opciones: ["Hitler", "Harry Houdini", "Einstein", "Todas Incorrectas"],
+            correcta: "Harry Houdini",
+            imagen: "./styles/assets/img/preguntas/facil/preguntaMedio3.jpg",
+            descripcionImagen:"Imagen de tortura"
+        },
+        3: {
+            categoria: "Historia",
+            pregunta: "El compuesto quimico del Agua es H202",
+            opciones: ["Verdadero", "Falso"],
+            correcta: "Falso",
+            imagen: "./styles/assets/img/preguntas/facil/preguntaMedio3.jpg",
+            descripcionImagen:"Imagen de gota de agua"
+        },
+        4: {
+            categoria: "Naturaleza",
+            pregunta: "Las abejas mueren al polinizar una flor",
+            opciones: ["Verdadero", "Falso"],
+            correcta: "Falso",
+            imagen: "./styles/assets/img/preguntas/facil/preguntaMedio4.jpg",
+            descripcionImagen:"Imagen de Abeja"
+        },
+        5: {
+            categoria: "Videojuegos",
+            pregunta: "El hermano de Mario se llama Luigi",
+            opciones: ["Verdadero", "Falso"],
+            correcta: "Verdadero",
+            imagen: "./styles/assets/img/preguntas/facil/preguntaMedio5.jpg",
+            descripcionImagen:"Imagen de Abeja"
+        },
     },
     "dificil":{
 
