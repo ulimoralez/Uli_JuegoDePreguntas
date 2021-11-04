@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+    <link rel="shortcut icon" href="./styles/assets/img/preguntasIcon.png" type="image/x-icon">
+    <title>Preguntas</title>
+</head>
+<body>
+    <header class="preguntas-header">
+        <a href="../index.html">Home</a>
+        <a href="./preguntas.html">Preguntas</a>
+        <a href="./dados.html">Dados</a>
+        <a href="./memoria.html">Memoria</a>
+        <a href="/">About</a>
+    </header>
+    <main class="main-container">
+        <section class="preguntas-container">
+            <div class="estadisticas-container">
+                <p class="estadisticas-container__nivel">Nivel: <span id="nivel"></span>/10</p>
+                <p class="estadisticas-container__puntos">Puntos: <span id="puntos"></span></p>
+            </div>
+            <p id="categoria" class="preguntas-container__categoria">Naturaleza</p>
+            <p id="pregunta" class="preguntas-container__pregunta"></p>
+            <img id="imagen" class="preguntas-container__imagen" src="" alt="">
+        </section>
+        <section id="respuestas" class="respuestas-container">
+        </section>
+    </main>
+    <script src="./preguntas.js"></script>
+</body>
+</html>

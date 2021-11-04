@@ -1,0 +1,17 @@
+{
+    "1": {
+        "categoria": "Naturaleza",
+        "pregunta": "¿A que grupo de animales pertenecen los ornitorrincos?",
+        "opciones": ["Anfibios", "Mamiferos", "Reptiles", "Aves Acuáticas"],
+        "correcta": "Mamiferos"
+    },
+    "2":{
+        "categoria": "Geografía",
+        "pregunta": "¿Cuál es la lengua más hablada del mundo?",
+        "opciones": ["Español", "Ingles", "Portugues", "Chino Mandarin"],
+        "correcta": "Chino Mandarin"
+    },
+    "3":{
+
+    }
+}
