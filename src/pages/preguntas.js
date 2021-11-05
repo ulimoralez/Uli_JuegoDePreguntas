@@ -179,6 +179,9 @@ window.onload = function () {
 // Obtenemos una pregunta aleatoria de nuestro catalogo, pasando como parametro el catalogo y la dificultad
 function getPregunta(catalogoPreguntas, dificultad) {
     let pregunta = catalogoPreguntas[dificultad][jugadasPosibles[nivelAJugar]]
+    if (nivelAJugar == 4) {
+        nivelAJugar = 0
+    }
     nivelAJugar++
     return pregunta
 }
@@ -212,38 +215,7 @@ function setOpciones(pregunta) {
 // Creamos una funcion para que en caso de que la respuesta sea correcta, se sume el puntaje y se muestre una nueva pregunta con sus opciones
 function validarRespuesta(idPregunta, opcionElegida) {
     let opcionCorrecta = catalogoPreguntas[dificultad][idPregunta].correcta
-    medirDificultad(nivelAJugar)
     let preguntaNueva = getPregunta(catalogoPreguntas, dificultad)
-        if (opcionCorrecta == opcionElegida) {
-            puntos += nivel * racha
-            racha++
-            nivel++
-
-            elementoPuntos.innerHTML = puntos
-            elementoNivel.innerHTML = nivel
-
-            alert("Ganaste!")
-
-            setPregunta(preguntaNueva)
-        }else{
-            nivel++
-            racha = 1
-
-            elementoPuntos.innerHTML = puntos
-            elementoNivel.innerHTML = nivel
-
-            alert("Perdiste!")
-
-            setPregunta(preguntaNueva)
-        }
-        contador++
-}
-
-//Segun la el nivel que se juegue 
-function medirDificultad(nivelAJugar){
-    if(nivelAJugar == 4){
-        nivelAJugar = 0
-    }
     if (nivel < 3) {
         dificultad = "facil"
     } else {
@@ -255,9 +227,30 @@ function medirDificultad(nivelAJugar){
             }
         }
     }
+    if (opcionCorrecta == opcionElegida) {
+        puntos += nivel * racha
+        racha++
+        nivel++
+
+        elementoPuntos.innerHTML = puntos
+        elementoNivel.innerHTML = nivel
+
+        alert("Ganaste!")
+
+        setPregunta(preguntaNueva)
+    } else {
+        nivel++
+        racha = 1
+
+        elementoPuntos.innerHTML = puntos
+        elementoNivel.innerHTML = nivel
+
+        alert("Perdiste!")
+
+        setPregunta(preguntaNueva)
+    }
+    contador++
 }
-
-
 //Toma un arreglo y lo ordena aleatoriamente
 function ordenarArregloAleatoriamente(inputArray) {
     inputArray.sort(() => Math.random() - 0.5);
