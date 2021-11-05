@@ -162,7 +162,9 @@ let puntos = 0
 let nivel = 1
 
 let jugadasPosibles = [1, 2, 3, 4, 5]
-let preguntaAJugar = 0
+let nivelAJugar = 0
+let racha = 1
+let contador = 1
 
 
 //Al iniciar tiene que setear una pregunta de la dificultad facil
@@ -172,13 +174,12 @@ window.onload = function () {
     elementoPuntos.innerHTML = puntos
     elementoNivel.innerHTML = nivel
     setPregunta(pregunta)
-    getOpciones(pregunta)
 }
 
 // Obtenemos una pregunta aleatoria de nuestro catalogo, pasando como parametro el catalogo y la dificultad
 function getPregunta(catalogoPreguntas, dificultad) {
-    let pregunta = catalogoPreguntas[dificultad][jugadasPosibles[preguntaAJugar]]
-    preguntaAJugar++
+    let pregunta = catalogoPreguntas[dificultad][jugadasPosibles[nivelAJugar]]
+    nivelAJugar++
     return pregunta
 }
 
@@ -188,10 +189,10 @@ function setPregunta(pregunta) {
     elementoPregunta.innerHTML = pregunta.pregunta
     elementoImagen.src = pregunta.imagen
     elementoImagen.alt = pregunta.descripcionImagen
+    setOpciones(pregunta)
 }
 //Crearemos un elemento HTML por cada opcion que se encuentra y le asignaremos las clases y funciones 
-function getOpciones(pregunta) {
-    console.log(pregunta)
+function setOpciones(pregunta) {
     let cantOpciones = Object.values(pregunta.opciones).length
     containerPrincipal.removeChild(containerRespuestas)
     containerRespuestas = document.createElement("section")
@@ -211,9 +212,37 @@ function getOpciones(pregunta) {
 // Creamos una funcion para que en caso de que la respuesta sea correcta, se sume el puntaje y se muestre una nueva pregunta con sus opciones
 function validarRespuesta(idPregunta, opcionElegida) {
     let opcionCorrecta = catalogoPreguntas[dificultad][idPregunta].correcta
-    console.log("ValidarRespuesta" + opcionCorrecta);
-    if(preguntaAJugar == 5){
-        preguntaAJugar = 0
+    medirDificultad(nivelAJugar)
+    let preguntaNueva = getPregunta(catalogoPreguntas, dificultad)
+        if (opcionCorrecta == opcionElegida) {
+            puntos += nivel * racha
+            racha++
+            nivel++
+
+            elementoPuntos.innerHTML = puntos
+            elementoNivel.innerHTML = nivel
+
+            alert("Ganaste!")
+
+            setPregunta(preguntaNueva)
+        }else{
+            nivel++
+            racha = 1
+
+            elementoPuntos.innerHTML = puntos
+            elementoNivel.innerHTML = nivel
+
+            alert("Perdiste!")
+
+            setPregunta(preguntaNueva)
+        }
+        contador++
+}
+
+//Segun la el nivel que se juegue 
+function medirDificultad(nivelAJugar){
+    if(nivelAJugar == 4){
+        nivelAJugar = 0
     }
     if (nivel < 3) {
         dificultad = "facil"
@@ -226,18 +255,10 @@ function validarRespuesta(idPregunta, opcionElegida) {
             }
         }
     }
-    let preguntaNueva = getPregunta(catalogoPreguntas, dificultad)
-    if (opcionCorrecta == opcionElegida) {
-        puntos++
-        nivel++
-        elementoPuntos.innerHTML = puntos
-        elementoNivel.innerHTML = nivel
-        setPregunta(preguntaNueva)
-        getOpciones(preguntaNueva)
-    }
 }
 
 
+//Toma un arreglo y lo ordena aleatoriamente
 function ordenarArregloAleatoriamente(inputArray) {
     inputArray.sort(() => Math.random() - 0.5);
 }
